@@ -116,6 +116,23 @@ export async function fetchSeasonPass(headers, proxy) {
     return data?.result || [];
 }
 
+// Fetch bonus gatcha
+export async function fetchGatchaBonus(headers, proxy) {
+    const data = await requestWithRetry("/public/pet/dna/gacha/bonus", { method: "GET", headers }, 3, proxy);
+    return data?.result || [];
+}
+// Claim bonus gatcha 
+export async function claimGatchaBonus(headers, proxy, reward_no) {
+    const payload = { reward_no };
+    const data = await requestWithRetry("/public/pet/dna/gacha/bonus/claim", {
+        method: "POST",
+        headers,
+        body: JSON.stringify(payload),
+    }, 3, proxy);
+    if (data?.result) {
+        log.info("Gatcha Bonus claimed successfully:", data.result);
+    }
+}
 // Claim season pass
 export async function claimSeasonPass(headers, proxy, seasonId, type, step) {
     const payload = { season_id: seasonId, type, step };

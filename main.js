@@ -17,6 +17,8 @@ import {
     claimAchievement,
     fetchSeasonPass,
     claimSeasonPass,
+    fetchGatchaBonus,
+    claimGatchaBonus,
 
 } from "./utils/scripts.js";
 
@@ -99,6 +101,9 @@ const getPower = async (headers, proxy) => {
 }
 const mergePetIds = async (headers, proxy) => {
     const petIds = await fetchPetDnaList(headers, proxy);
+    if (!petIds.allPetIds || petIds.allPetIds.length < 1) {
+        return;
+    };
     log.info("Number Available Female Pet:", petIds?.momPetIds?.length || 0);
     log.info("Number Available Male Pet:", petIds?.dadPetIds?.length || 0);
 
@@ -240,12 +245,26 @@ async function startMission() {
             "tg-init-data": user,
         };
 
+        log.info("Fetching Gatcha Bonus...");
+        const gatchaBonus = await fetchGatchaBonus(headers, proxy);
+        const { current_step, is_claimed_god_power, is_claimed_dna, step_bonus_god_power, step_bonus_dna } = gatchaBonus;
+        if (current_step >= step_bonus_god_power && !is_claimed_god_power) {
+            log.info("Claiming God Power Bonus...");
+            await claimGatchaBonus(headers, proxy, 1);
+        } else if (current_step >= step_bonus_dna && !is_claimed_dna) {
+            log.info("Claiming DNA Bonus...");
+            await claimGatchaBonus(headers, proxy, 2);
+        } else {
+            log.warn("No bonus from gatcha to claim.");
+        };
+
         let power = await getPower(headers, proxy);
         while (power >= 1) {
             log.info("Power is enough to gatcha new pet. lets go!");
             power = await getNewPet(headers, proxy);
             await delay(1);
-        }
+        };
+
         log.info("Fetching pet mom and dad can indehoy!❤️");
         await mergePetIds(headers, proxy);
         await delay(1);
