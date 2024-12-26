@@ -226,7 +226,7 @@ export async function claimAchievement(headers, proxy, questId) {
     }
 }
 
-// Get new pet 
+// Gatcha new pet
 export async function getNewPet(headers, proxy) {
     const data = await requestWithRetry("/public/pet/dna/gacha", {
         method: "POST",
