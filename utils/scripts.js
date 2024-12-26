@@ -62,10 +62,13 @@ export async function fetchAllAchievements(headers, proxy) {
 // Fetch pet list
 export async function fetchPetList(headers, proxy) {
     const data = await requestWithRetry("/public/pet/list", { method: "GET", headers }, 3, proxy);
+    if (!data || !data.result) {
+        return { petIdsByStarAndClass: {}, allPetIds: [] };
+    };
     const petIdsByStarAndClass = {};
     const allPetIds = [];
 
-    for (const pet of data.result || []) {
+    for (const pet of data.result) {
         if (!petIdsByStarAndClass[pet.star]) petIdsByStarAndClass[pet.star] = {};
         if (!petIdsByStarAndClass[pet.star][pet.class]) petIdsByStarAndClass[pet.star][pet.class] = [];
 
@@ -83,11 +86,14 @@ export async function fetchPetList(headers, proxy) {
 // Fetch pet DNA list
 export async function fetchPetDnaList(headers, proxy) {
     const data = await requestWithRetry("/public/pet/dna/list", { method: "GET", headers }, 3, proxy);
+    if (!data || !data.result) {
+        return { momPetIds: [], dadPetIds: [], allPetIds: [] };
+    }
     const momPetIds = [];
     const dadPetIds = [];
     const allPetIds = [];
 
-    for (const pet of data.result || []) {
+    for (const pet of data.result) {
         const petAmount = parseInt(pet.amount, 10);
         for (let i = 0; i < petAmount; i++) {
             allPetIds.push(pet.item_id);
