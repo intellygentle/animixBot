@@ -18,7 +18,7 @@ This script automates various tasks for the Animix miniapp telegram.
 - Node.js installed on your machine
 - `users.txt` file containing user data follow instruction below to get:
 - log in to your telegram on pc
-- Open Animix miniapp telegram [https://t.me/animix_game_bot](https://t.me/animix_game_bot?startapp=A2veN3aAUJqc)
+- Open Animix miniapp telegram https://t.me/animix_game_bot?startapp=KRTIRBzDfsrq
 - inspect or just F12 find application
 - in session storage find `tgWebAppData` and copy all value. `user=....`
 - if yours starts with "query_.sdjydh" copy from query till the end of the line and paste in users.txt
