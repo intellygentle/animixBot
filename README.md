@@ -23,6 +23,38 @@ This script automates various tasks for the Animix miniapp telegram.
 - in session storage find `tgWebAppData` and copy all value. `user=....`
 ![usersData](img/image-1.png)
 
+## Run on mobile with Termux
+- download termux on playstore
+- run the following commands to install Ubuntu
+
+```shell
+apt upgrade && apt update
+apt update
+```
+
+
+```sh
+apt install proot-distro
+proot-distro install ubuntu
+```
+- you may need to quit termux and close the app from background before proceeding
+
+```sh
+proot-distro login ubuntu
+```
+
+```sh
+<img width="427" alt="image" src="https://github.com/user-attachments/assets/2445508c-c427-4260-b85c-f84bfb84b4bc" />
+
+apt update && apt upgrade -y 
+apt install sudo nano adduser
+adduser intellygentle
+```
+
+```sh
+nano /etc/sudoers
+```
+
 ## Installation
 
 1. Clone the repository:
