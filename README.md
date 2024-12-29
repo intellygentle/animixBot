@@ -51,9 +51,20 @@ apt install sudo nano adduser
 adduser intellygentle
 ```
 
+<img width="345" alt="image" src="https://github.com/user-attachments/assets/de4c5cab-6b68-42e1-8503-1c12c6c49752" />
+
 ```sh
 nano /etc/sudoers
 ```
+![image](https://github.com/user-attachments/assets/b1a46e5c-fdd7-45d0-8379-8f2ac0bfdd3f)
+
+```sh
+usermod -aG sudo intellygentle
+su - intellygentle
+```
+
+- full X thread on how to install ubuntu on termux
+https://x.com/Intellygentle/status/1866529976964812874
 
 ## Installation
 
