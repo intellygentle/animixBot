@@ -43,9 +43,9 @@ proot-distro install ubuntu
 proot-distro login ubuntu
 ```
 
-```sh
-<img width="427" alt="image" src="https://github.com/user-attachments/assets/2445508c-c427-4260-b85c-f84bfb84b4bc" />
+<img width="427" alt="image" src="https://github.com/user-attachments/assets/91133f5f-07d1-4518-90ce-aa71cf19d5ec" />
 
+```sh
 apt update && apt upgrade -y 
 apt install sudo nano adduser
 adduser intellygentle
