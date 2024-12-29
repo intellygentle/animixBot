@@ -70,7 +70,7 @@ https://x.com/Intellygentle/status/1866529976964812874
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/Zlkcyber/animixBot.git
+    https://github.com/intellygentle/animixBot.git
     cd animixBot
     ```
 
