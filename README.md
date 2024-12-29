@@ -78,7 +78,7 @@ https://x.com/Intellygentle/status/1866529976964812874
     ```sh
     npm install
     ```
-3. Input your user data in `users.txt` file, one user per line;
+3. Input your user data in `users.txt` file, one user per line; You will get it by loging in your tg on a pc. You can see the example above 
     ```sh
     nano users.txt
     ```
