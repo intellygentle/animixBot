@@ -21,6 +21,7 @@ This script automates various tasks for the Animix miniapp telegram.
 - Open Animix miniapp telegram [https://t.me/animix_game_bot](https://t.me/animix_game_bot?startapp=A2veN3aAUJqc)
 - inspect or just F12 find application
 - in session storage find `tgWebAppData` and copy all value. `user=....`
+- if yours starts with "query_.sdjydh" copy from query till the end of the line and paste in users.txt
 ![usersData](img/image-1.png)
 
 ## Run on mobile with Termux
